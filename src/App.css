@@ -1,0 +1,124 @@
+#root {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+#container {
+    width: 900px;
+    max-width: 100%;
+    overflow-y: auto;
+    padding: 1em;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#container::-webkit-scrollbar {
+    width: 0;
+}
+
+.tasklike {
+    border: 1pt solid var(--secondary-fg);
+    border-radius: 5px;
+    background-color: var(--secondary-bg);
+    padding: 15px;
+    transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+}
+
+.task {
+    border: 1pt solid var(--secondary-fg);
+    border-radius: 5px;
+    background-color: var(--secondary-bg);
+    margin-top: 15px;
+    margin-bottom: 15px;
+    min-height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    max-width: 90vw;
+    width: 550px;
+    transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.task-left-subcontainer {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+}
+
+.task-right-subcontainer {
+    flex: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.sharp-bottom {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.hide-if-empty:empty {
+    display: none !important;
+}
+
+.subtask-container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--tertiary-bg);
+    margin: 0px;
+    margin-top: -15px;
+    border: 1pt solid var(--secondary-fg);
+    border-top: none; /* Works ig?? */
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.subtask {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px;
+}
+
+.done-list {
+    position: fixed;
+    right: 25px;
+    top: 25px;
+    width: 22vw;
+    height: calc(100vh - 50px); /* 🤓 */
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    background-color: var(--tertiary-bg) !important;
+}
+
+@media (hover: hover), (-ms-high-contrast: none) {
+    .task:hover, .tasklike:hover {
+        box-shadow: var(--shadow) 0px 3px 20px;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+     .done-list {
+        position: static;
+        height: auto;
+        width: 550px;
+        max-width: 90vw;
+     }
+}

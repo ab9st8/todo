@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --fg-color: #fafafa;
+    --bg-color: #242424;
+
+    font-family: Lato, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    background-color: var(--bg-color);
+    color-scheme: light dark;
+    
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    
+    --secondary-fg: #414141;
+    --secondary-bg: #41414155;
+    --tertiary-fg: #323232;
+    --tertiary-bg: #32323255;
+    --shadow: #42424255;
+
+
+    --delete: #eb4a4a;
+    --delete-dim: #eb4a4a22;
+    --edit: #648ee9;
+    --edit-dim: #648ee922;
+    --done: #419734;
+    --done-dim: #41973422;
+    --stop: #ed9315;
+    --stop-dim: #ed931522;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+input {
+    display: inline-block;
+    border: none;
+    /* background-color: inherit; */
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0.5em;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    transition: background-color 0.1s;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+input:disabled {
+    color: var(--secondary-fg);
+    -webkit-text-fill-color: var(--secondary-fg);
+    opacity: 1;
+}
+
+input:focus {
+    /* background-color: var(--tertiary-bg); */
+    background-color: var(--secondary-bg);
+    outline: none;
+}
+
+button {
+    border-radius: 5px;
+    border: 1px solid transparent;
+    background-color: transparent;
+    min-width: 42px;
+    min-height: 42px;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    color: var(--fg-color);
+    transition: background-color 0.15s,
+    stroke 0.1s,
+    border-color 0.1s;
+    stroke: var(--fg-color);
+}
+
+button:disabled {
+    stroke: var(--secondary-fg);
+}
+
+@media (hover: hover), (-ms-high-contrast: none) {
+    button:hover {
+        background-color: var(--secondary-bg);
+    }
+    button:disabled:hover {
+        /* background-color: var(--secondary-bg) !important; */
+        background-color: transparent !important;
+        /* stroke: var(--fg-color) !important; */
+        stroke: var(--secondary-fg) !important;
+    }
+    
+    button.edit-button:hover {
+        /* border-color: var(--edit); */
+        background-color: var(--edit-dim);
+        stroke: var(--edit);
+    }
+
+    button.subtask-button:hover {
+        background-color: var(--edit-dim);
+        stroke: var(--edit);
+    }
+    
+    button.delete-button:hover {
+        /* border-color: var(--delete); */
+        background-color: var(--delete-dim) !important;
+        stroke: var(--delete) !important;
+    }
+    
+    button.done-button:hover {
+        background-color: var(--done-dim);
+        stroke: var(--done);
+    }
+    
+    button.stop-button:hover {
+        color: var(--stop);
+        background-color: var(--stop-dim) !important;
+        stroke: var(--stop) !important;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        --bg-color:  #fafafa;
+        --fg-color: #242424;
+        --secondary-fg: #d5d5d5;
+        --secondary-bg: #d5d5d555;
+        --tertiary-bg: #eaeaea55;
+        --tertiary-fg: #eaeaea;
+
+        --shadow: #cccccc55;
+    }
+}
